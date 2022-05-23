@@ -1,3 +1,9 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
+const MY_PORT = process.env.PORT;
+const MY_APP_SECRET = process.env.APP_SECRET;
+
 const http = require('http');
 const app = require('./app');
 
@@ -14,6 +20,8 @@ const normalizePort = val => {
 };
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+
+//app.listen(MY_PORT, (req, res, next) => console.log(`Server running on port ${MY_PORT}`));
 
 const errorHandler = error => {
   if (error.syscall !== 'listen') {
@@ -45,3 +53,4 @@ server.on('listening', () => {
 });
 
 server.listen(port);
+

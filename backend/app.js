@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+const userRoutes = require('./routes/user'); 
+
 mongoose.connect('mongodb+srv://karim:azerty@cluster0.jukug.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -17,9 +19,11 @@ res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content
 res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 next();
 });
-  
+
 app.use((req, res) => {
   res.json({ message: 'Votre requête a bien été reçue !' }); 
 });
+
+app.use('/api/auth', userRoutes);
 
 module.exports = app;
