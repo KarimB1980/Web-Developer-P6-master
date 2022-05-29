@@ -1,14 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-//const userRoutes = require('./routes/user');
-
-const auth = require('../middleware/auth');
-
 const userCtrl = require('../controllers/user');
+const validate = require('../middlewares/validation');
 
-router.post('/signup', auth, userCtrl.signup);
-router.post('/login', auth, userCtrl.login);
-
+router.post('/signup', validate.user, userCtrl.signup);
+router.post('/login', validate.user, userCtrl.login);
 
 module.exports = router;
