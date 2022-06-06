@@ -1,3 +1,5 @@
+// Création du serveur Node
+// Importation du package HTTP natif de Node 
 const http = require('http');
 const app = require('./app');
 
