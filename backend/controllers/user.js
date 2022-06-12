@@ -1,10 +1,13 @@
+// Sécurisation des mots de passe avec bcrypt
 const bcrypt = require('bcrypt');
+// Echange sécurisé de jetons avec JSON Web Token
 const jwt = require('jsonwebtoken');
+
 const User = require('../models/User');
 
 exports.signup = (req, res, next) => {
   if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[&,#,$,@,£])(?=.{9,})/.test(req.body.password)) {
-    return res.status(401).json({ error: 'Le mot de passe doit contenir au minimum une lettre majuscule, une minuscule, un chiffre, un caractère spécial([&,#,$,@,£) et au minimum neuf caractères.' });
+    return res.status(401).json({ error: 'Le mot de passe doit contenir au minimum une lettre minuscule, une majuscule, un chiffre, un caractère spécial([&,#,$,@,£) et au minimum neuf caractères.' });
   }
   else
   {

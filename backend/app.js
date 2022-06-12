@@ -1,4 +1,6 @@
+// Framework Express
 const express = require('express');
+// Base de données MongoDB
 const mongoose = require('mongoose');
 const app = express();
 const userRoutes = require('./routes/user');
