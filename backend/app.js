@@ -28,6 +28,17 @@ app.use((req, res, next) => {
 // Prise en charge du JSON.
 app.use(express.json());
 
+// Création d'un dossier images si inexistant 
+const fs = require('fs');
+const folderName = '/images';
+try {
+  if (!fs.existsSync(folderName)) {
+    fs.mkdirSync(folderName);
+  }
+} catch (err) {
+  console.error(err);
+}
+
 // Chemin statique pour fournir les images
 app.use('/images', express.static(('images')));
 
