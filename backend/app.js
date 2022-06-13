@@ -30,7 +30,7 @@ app.use(express.json());
 
 // Création d'un dossier images si inexistant 
 const fs = require('fs');
-const folderName = '/images';
+const folderName = './images';
 try {
   if (!fs.existsSync(folderName)) {
     fs.mkdirSync(folderName);
