@@ -1,3 +1,5 @@
+// Utilisation de Multer pour la gestion des images dans les requètes http
+
 const multer = require('multer');
 
 const MIME_TYPES = {
