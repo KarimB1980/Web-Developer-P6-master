@@ -34,7 +34,7 @@ exports.createSauce = (req, res, next) => {
 // Modifier une sauce
 exports.modifySauce = (req, res, next) => {
   if (req.file) {
-    // Si modification de l'image, suppression de l'ancienne image dans le dossier /image
+    // Si modification de l'image, suppression de l'ancienne image dans le dossier /images
     Sauce.findOne({ _id: req.params.id })
       .then(sauce => {
         const filename = sauce.imageUrl.split('/images/')[1];
